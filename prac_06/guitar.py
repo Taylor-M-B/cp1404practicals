@@ -1,4 +1,5 @@
 CURRENT_YEAR = 2019
+VINTAGE_AGE = 50
 
 
 class Guitar:
@@ -12,12 +13,9 @@ class Guitar:
         print("{} ({}): ${:.2f}".format(self.name, self.year, self.cost))
 
     def get_age(self):
-        guitar_year = self.year
-        guitar_age = CURRENT_YEAR - guitar_year
-        return guitar_age
+        """Get the age of a guitar based on the CURRENT_YEAR."""
+        return CURRENT_YEAR - self.year
 
-    def is_vintage(self, guitar_age):
-        if guitar_age >= 50:
-            return True
-        else:
-            return False
+    def is_vintage(self):
+        """Determine if a Guitar is considered vintage or not based on age."""
+        return self.get_age() >= VINTAGE_AGE
